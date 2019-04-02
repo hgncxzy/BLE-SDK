@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.example.xzy">
+
+    <!-- 添加蓝牙权限 -->
+    <!-- 所有手机需要的权限，蓝牙功能才能正常使用 -->
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/> <!-- 部分手机（如小米等）需要将下面两个权限添加进去，蓝牙功能才能正常使用 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <application
+        android:allowBackup="false"
+        android:name="com.example.xzy.app.BleApplication"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppBaseTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name="com.example.xzy.activity.PermissionActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.xzy.activity.BleConnectActivity"/>
+        <activity android:name="com.example.xzy.activity.TestActivity"/>
+        <service android:name="com.example.xzy.ble.BluetoothLeService" android:enabled="true"/>
+    </application>
+</manifest>
