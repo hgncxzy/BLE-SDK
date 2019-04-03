@@ -3,7 +3,7 @@ package com.example.xzy.config;
 /**
  *
  * Description :配置类
- * Created by XuZhuYun 2019/4/3 10:33 .
+ * Created by xzy 2019/4/3 10:33 .
  */
 public class Config {
 
@@ -13,7 +13,7 @@ public class Config {
     public static final String READ_UUID = "0000ffe1-0000-1000-8000-00805f9b34fb";
 
     // 目标设备的名称
-    public static final String TARGET_DEVICE_NAME = "FicboxBle";
+    public static final String TARGET_DEVICE_NAME = "deviceName";
 
 
 }

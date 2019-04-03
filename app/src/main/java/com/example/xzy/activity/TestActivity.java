@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.bluetooth.BluetoothGattCharacteristic;
@@ -30,7 +29,6 @@ import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
-
 import com.example.xzy.ble.BluetoothLeService;
 import com.example.xzy.R;
 import com.example.xzy.ble.SampleGattAttributes;
@@ -38,7 +36,7 @@ import com.example.xzy.util.CommonUtil;
 
 /**
  * 功能测试类
- *  Created by XuZhuYun 2019/4/3 10:33 .
+ *  Created by xzy 2019/4/3 10:33 .
  */
 @SuppressLint("NewApi")
 public class TestActivity extends Activity {
@@ -48,7 +46,6 @@ public class TestActivity extends Activity {
     private EditText mDataEt;
 
     private ExpandableListView mGattServicesList;
-    private EditText mSendEt;
     private String DATA;
     private int i;
     private ArrayList<BluetoothGattCharacteristic> mBluetoothGattCharacteristicArrayList = new ArrayList<>();
@@ -156,11 +153,9 @@ public class TestActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gatt_services_characteristics2);
         mStateTv = findViewById(R.id.connection_state);
-
         Intent intent = getIntent();
         String deviceName = intent.getStringExtra("name");
         mDeviceAddress = intent.getStringExtra("address");
-
         Log.e(TAG, "名字"+ deviceName +"地址"+mDeviceAddress);
         Objects.requireNonNull(getActionBar()).setTitle(deviceName);
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -170,18 +165,14 @@ public class TestActivity extends Activity {
 
         TextView addressTv = findViewById(R.id.device_address);
         addressTv.setText(mDeviceAddress);
-
         mDataEt = findViewById(R.id.data_value);
         mDataEt.setMovementMethod(ScrollingMovementMethod.getInstance());
         //tvdata.setSelected(true);
         mDataEt.requestFocus();//get the focus
         mRSSITv = findViewById(R.id.data_rssi);
-
-
         mGattServicesList = findViewById(R.id.gatt_services_list);
         mGattServicesList.setOnChildClickListener(servicesListClickListner);
-
-        mSendEt = findViewById(R.id.et_send);
+        EditText sendEt = findViewById(R.id.et_send);
         Button sendBtn = findViewById(R.id.btsend);
 
         sendBtn.setOnClickListener(new OnClickListener() {
@@ -228,7 +219,6 @@ public class TestActivity extends Activity {
         registerReceiver(mGattUpdateReceiver, makeGattUpdateIntentFilter());
         Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
         bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
-
     }
 
     @Override
@@ -294,18 +284,14 @@ public class TestActivity extends Activity {
         super.onPause();
         flg=false;
         unregisterReceiver(mGattUpdateReceiver);
-
     }
     /**
      * 结束服务
      */
     @Override
     protected void onDestroy() {
-        // TODO Auto-generated method stub
         super.onDestroy();
-
         unbindService(mServiceConnection);
-
     }
 
     private void displayGattServices(List<BluetoothGattService> gattServices) {
@@ -420,8 +406,6 @@ public class TestActivity extends Activity {
      * 注册广播
      * @return IntentFilter
      */
-
-
     private static IntentFilter makeGattUpdateIntentFilter() {
         final IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(BluetoothLeService.ACTION_GATT_CONNECTED);
@@ -442,6 +426,4 @@ public class TestActivity extends Activity {
         }
         return XorValue;
     }
-
-
 }

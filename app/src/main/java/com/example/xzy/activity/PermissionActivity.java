@@ -9,12 +9,11 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-
 import com.example.xzy.app.BleApplication;
 
 /**
  *权限检查类
- * Created by XuZhuYun 2019/4/3 10:33 .
+ * Created by xzy 2019/4/3 10:33 .
  */
 public class PermissionActivity extends AppCompatActivity {
     // 蓝牙使能识别码
@@ -26,8 +25,6 @@ public class PermissionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         checkPermission();
     }
-
-
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -50,7 +47,6 @@ public class PermissionActivity extends AppCompatActivity {
      */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
-
         switch (requestCode) {
             case MY_PERMISSION_REQUEST_CONSTANT: {
                 // If request is cancelled, the result arrays are empty.

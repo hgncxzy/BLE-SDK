@@ -1,15 +1,8 @@
 package com.example.xzy.activity;
 
-
-
-
-
-import static com.example.xzy.config.Config.TARGET_DEVICE_NAME;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -31,13 +24,11 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
-
-import com.example.xzy.app.BleApplication;
 import com.example.xzy.R;
 
 /**
  * ble 蓝牙连接类
- *  Created by XuZhuYun 2019/4/3 10:33 .
+ *  Created by xzy 2019/4/3 10:33 .
  */
 @SuppressLint("NewApi")
 public class BleConnectActivity extends Activity {
@@ -91,18 +82,13 @@ public class BleConnectActivity extends Activity {
 			public void onItemClick(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
 				BluetoothDevice device=	(BluetoothDevice) listItem.get(arg2).get("device");
-				Log.e(TAG, "点击的按钮"+arg2+device.getAddress()+"cacaca");
-
 				Intent intent=new Intent(getApplicationContext(), TestActivity.class);
-
 				intent.putExtra("address",device.getAddress());
 				intent.putExtra("name",device.getName());
-
 				if (mScanning) {
 					mBluetoothAdapter.stopLeScan(mLeScanCallback);
 					mScanning = false;
 				}
-
 				startActivity(intent);
 			}
 		});
@@ -111,6 +97,12 @@ public class BleConnectActivity extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
+				if(listItem != null && listItem.size() >0){
+					listItem.clear();
+					if(adapter != null){
+						adapter.notifyDataSetChanged();
+					}
+				}
 				scanLeDevice(true);
 				Log.e(TAG, "开始搜寻");
 			}
@@ -186,19 +178,19 @@ public class BleConnectActivity extends Activity {
 								adapter.notifyDataSetChanged();
 							}
 							// 根据设备名称来过滤 ，也可以通过设备 mac 地址来过滤
-							if(TARGET_DEVICE_NAME.equals(device.getName())){
-								Toast.makeText(BleApplication.getInstance().getApplicationContext(),"find target.",Toast.LENGTH_SHORT).show();
-								Intent intent=new Intent(getApplicationContext(), TestActivity.class);
-								intent.putExtra("address",device.getAddress());
-								intent.putExtra("name",device.getName());
-
-								if (mScanning) {
-									mBluetoothAdapter.stopLeScan(mLeScanCallback);
-									mScanning = false;
-								}
-
-								startActivity(intent);
-							}
+//							if(TARGET_DEVICE_NAME.equals(device.getName())){
+//								Toast.makeText(BleApplication.getInstance().getApplicationContext(),"find target.",Toast.LENGTH_SHORT).show();
+//								Intent intent=new Intent(getApplicationContext(), TestActivity.class);
+//								intent.putExtra("address",device.getAddress());
+//								intent.putExtra("name",device.getName());
+//
+//								if (mScanning) {
+//									mBluetoothAdapter.stopLeScan(mLeScanCallback);
+//									mScanning = false;
+//								}
+//
+//								startActivity(intent);
+//							}
 							Log.e(TAG,"发现蓝牙"+device.getAddress()+"状态"+device.getBondState()+"type"+device.getType()+device.describeContents());
 						}
 					});
