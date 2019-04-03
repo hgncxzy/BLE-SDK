@@ -13,7 +13,8 @@ import android.util.Log;
 import com.example.xzy.app.BleApplication;
 
 /**
- *权限配置
+ *权限检查类
+ * Created by XuZhuYun 2019/4/3 10:33 .
  */
 public class PermissionActivity extends AppCompatActivity {
     // 蓝牙使能识别码

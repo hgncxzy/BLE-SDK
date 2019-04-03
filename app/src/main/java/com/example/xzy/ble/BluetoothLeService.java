@@ -20,6 +20,8 @@ import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
 
+import com.example.xzy.config.Config;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -48,16 +50,14 @@ public class BluetoothLeService extends Service {
     public final static String EXTRA_DATA = "com.example.bluetooth.le.EXTRA_DATA";
     public final static String ACTION_DATA_RSSI = "com.example.bluetooth.le.ACTION_DATA_RSSI";
     public final static String ACTION_RSSI = "com.example.bluetooth.le.ACTION_RSSI";
-
-    // ============在这里修改具体的配置：服务UUID、写特征UUID、读特征UUID
-//    public static final UUID SERVICE_UUID = UUID.fromString("0000ffe0-0000-1000-8000-00805f9b34fb");
-//    public static final UUID WRITE_UUID = UUID.fromString("0000ffe1-0000-1000-8000-00805f9b34fb");
-//    public static final UUID READ_UUID = UUID.fromString("0000ffe1-0000-1000-8000-00805f9b34fb");
-    // ============在这里修改具体的配置：服务UUID、写特征UUID、读特征UUID
-    public static final UUID SERVICE_UUID = UUID.fromString("0000ff00-0000-1000-8000-00805f9b34fb");
-    public static final UUID WRITE_UUID = UUID.fromString("0000ff01-0000-1000-8000-00805f9b34fb");
-    public static final UUID READ_UUID = UUID.fromString("0000ff02-0000-1000-8000-00805f9b34fb");
     public final static UUID UUID_HEART_RATE_MEASUREMENT = UUID.fromString(SampleGattAttributes.HEART_RATE_MEASUREMENT);
+
+
+    // ============在配置文件类 Config 里面配置：服务UUID、写特征UUID、读特征UUID
+    public static final UUID SERVICE_UUID = UUID.fromString(Config.SERVICE_UUID);
+    public static final UUID WRITE_UUID = UUID.fromString(Config.WRITE_UUID);
+    public static final UUID READ_UUID = UUID.fromString(Config.READ_UUID);
+
 
     // 连接的变化和服务发现。
     @SuppressLint("NewApi")
@@ -342,7 +342,7 @@ public class BluetoothLeService extends Service {
      * @param bb 发送的字符串
      * @return Boolean
      */
-    public Boolean write(BluetoothGattCharacteristic characteristic ,String bb){
+    public Boolean writeStringData(BluetoothGattCharacteristic characteristic ,String bb){
         if(mBluetoothGatt==null){
             Log.e(TAG, "mBluetoothGatt==空");
             return false;
@@ -365,11 +365,10 @@ public class BluetoothLeService extends Service {
 
     /**
      * 发送 byte 字节
-     * @param iAlertLevel  iAlertLevel
      * @param bb 发送的字节
      * @return  Boolean
      */
-    public Boolean writeLlsAlertLevel(int iAlertLevel, byte[] bb) {
+    public Boolean writeByteData( byte[] bb) {
         if(mBluetoothGatt==null){
             Log.e(TAG, "mBluetoothGatt==空");
             return false;
@@ -381,15 +380,7 @@ public class BluetoothLeService extends Service {
             return false;
         }
 
-        BluetoothGattCharacteristic alertLevel = null;
-        switch (iAlertLevel) {
-            case 1: // red
-                alertLevel = linkLossService.getCharacteristic(WRITE_UUID);
-                break;
-//            case 2:
-//                alertLevel = linkLossService.getCharacteristic(READ_UUID);
-//                break;
-        }
+        BluetoothGattCharacteristic   alertLevel = linkLossService.getCharacteristic(WRITE_UUID);
         if (alertLevel == null) {
             Log.e(TAG, "特征没有发现！");
             return false;

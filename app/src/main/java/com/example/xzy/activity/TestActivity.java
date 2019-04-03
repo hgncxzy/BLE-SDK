@@ -36,6 +36,10 @@ import com.example.xzy.R;
 import com.example.xzy.ble.SampleGattAttributes;
 import com.example.xzy.util.CommonUtil;
 
+/**
+ * 功能测试类
+ *  Created by XuZhuYun 2019/4/3 10:33 .
+ */
 @SuppressLint("NewApi")
 public class TestActivity extends Activity {
     private static final String TAG = "BlueContActivity";
@@ -44,7 +48,7 @@ public class TestActivity extends Activity {
     private EditText mDataEt;
 
     private ExpandableListView mGattServicesList;
-    private EditText et_send;
+    private EditText mSendEt;
     private String DATA;
     private int i;
     private ArrayList<BluetoothGattCharacteristic> mBluetoothGattCharacteristicArrayList = new ArrayList<>();
@@ -177,10 +181,10 @@ public class TestActivity extends Activity {
         mGattServicesList = findViewById(R.id.gatt_services_list);
         mGattServicesList.setOnChildClickListener(servicesListClickListner);
 
-        et_send = findViewById(R.id.et_send);
-        Button btsend = findViewById(R.id.btsend);
+        mSendEt = findViewById(R.id.et_send);
+        Button sendBtn = findViewById(R.id.btsend);
 
-        btsend.setOnClickListener(new OnClickListener() {
+        sendBtn.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
@@ -188,10 +192,11 @@ public class TestActivity extends Activity {
                 // 发送 byte 数组
                 byte[] byte1 = {0x48, 0x42,(byte) 0xA0,0x01,0x01};
                 byte[] byte2 = new byte[]{0x48, 0x42,(byte) 0xA0,0x01,0x01,XorVerify(byte1)};
-                sendResult = mBluetoothLeService.writeLlsAlertLevel(1,byte2);
+                sendResult = mBluetoothLeService.writeByteData(byte2);
                 // 发送字符串
 //                String sendStr = et_send.getText().toString();
-//                sendResult = mBluetoothLeService.write(mNotifyCharacteristic,sendStr);
+//                sendResult = mBluetoothLeService.writeStringData(mNotifyCharacteristic,sendStr);
+                // 发送成功就表示链路是通的，不一定有返回，与具体的固件版本是否可以有返回值有关
                 Log.e(TAG, "发送 UUID "+ mNotifyCharacteristic.getUuid().toString() + "是否发送成功::"+sendResult);
             }
         });

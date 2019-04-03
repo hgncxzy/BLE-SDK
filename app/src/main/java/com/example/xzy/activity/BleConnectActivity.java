@@ -4,6 +4,8 @@ package com.example.xzy.activity;
 
 
 
+import static com.example.xzy.config.Config.TARGET_DEVICE_NAME;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
@@ -33,6 +35,10 @@ import android.widget.Toast;
 import com.example.xzy.app.BleApplication;
 import com.example.xzy.R;
 
+/**
+ * ble 蓝牙连接类
+ *  Created by XuZhuYun 2019/4/3 10:33 .
+ */
 @SuppressLint("NewApi")
 public class BleConnectActivity extends Activity {
 	private static final String TAG = "MainActivity";
@@ -179,8 +185,8 @@ public class BleConnectActivity extends Activity {
 								listItem.add(map);
 								adapter.notifyDataSetChanged();
 							}
-//							if("FicboxBle".equals(device.getName())){
-							if("DC:2C:26:00:00:3A".equals(device.getAddress())){
+							// 根据设备名称来过滤 ，也可以通过设备 mac 地址来过滤
+							if(TARGET_DEVICE_NAME.equals(device.getName())){
 								Toast.makeText(BleApplication.getInstance().getApplicationContext(),"find target.",Toast.LENGTH_SHORT).show();
 								Intent intent=new Intent(getApplicationContext(), TestActivity.class);
 								intent.putExtra("address",device.getAddress());
