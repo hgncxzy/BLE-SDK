@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/gatt_services_characteristics.xml" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/gatt_services_characteristics2.xml" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/menu" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml" charset="GBK" />
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/fcbox/ble/baseble" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/blelibrary/src/main/res/layout/activity_main.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/blelibrary/src/main/res/layout/gatt_services_characteristics.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/blelibrary/src/main/res/layout/gatt_services_characteristics2.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/sample-ble/src/main/res/layout/activity_main.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/sample-ble/src/main/res/layout/gatt_services_characteristics.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/sample-ble/src/main/res/layout/gatt_services_characteristics2.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/sample-ble/src/main/res/menu" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/sample-ble/src/main/res/values/dimens.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/sample-ble/src/main/res/values/strings.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/sample-ble/src/main/res/values/styles.xml" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
