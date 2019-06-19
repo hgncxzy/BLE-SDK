@@ -84,7 +84,7 @@ private fun checkPermissionAndBleEnable(){
 
 ```kotlin
 //蓝牙相关配置修改
-FcBoxBle.config()!!
+BaseBle.config()!!
                 .setscanBleTimeout(-1)//扫描超时时间，这里设置为永久扫描
                 .setconnectBleTimeout(10 * 1000)//连接超时时间
                 .setoperateBleTimeout(5 * 1000)//设置数据操作超时时间
@@ -97,7 +97,7 @@ FcBoxBle.config()!!
                 .setBleCharacteristicUUID("0000ffe1-0000-1000-8000-00805f9b34fb")// 特征码 UUID
                 .setBleDescriptorUUID("0000ffe1-0000-1000-8000-00805f9b34fb") // 描述 UUID
  //蓝牙信息初始化，全局唯一，必须在应用初始化时调用
- FcBoxBle.getInstance()!!.init(this)
+ BaseBle.getInstance()!!.init(this)
 ```
 
 初始化可以是在 Application 中也可以是在 MainActivity 中，只需要是在使用蓝牙功能前就行。还有需要注意的是，蓝牙配置必须在蓝牙初始化前进行修改，如果默认配置满足要求也可以不修改配置。最后面三个方法中的 UUID 请硬件工程师提供后，修改即可。
@@ -157,8 +157,8 @@ private fun registerMyReceiver(){
         super.onDestroy()
         unregisterReceiver(myReceiver) // 反注册广播
         BleConfig.getInstance()?.deviceMirror?.unregisterNotify(true)
-        FcBoxBle.getInstance()!!.disconnect()
-        FcBoxBle.getInstance()!!.clear()
+        BaseBle.getInstance()!!.disconnect()
+        BaseBle.getInstance()!!.clear()
     }
 ```
 
@@ -169,7 +169,7 @@ private fun registerMyReceiver(){
 通过已知的 MAC 地址连接蓝牙设备。
 
 ```kotlin
-     FcBoxBle.getInstance()!!.connectByMac(deviceMac, object : IConnectCallback {
+     BaseBle.getInstance()!!.connectByMac(deviceMac, object : IConnectCallback {
             override fun onConnectSuccess(deviceMirror: DeviceMirror) {
                 val disposable = Flowable.just(1)
                         .doOnNext {
@@ -224,7 +224,7 @@ BleConfig.getInstance()?.deviceMirror = deviceMirror
 退出应用时，断开连接。
 
 ```kotlin
-FcBoxBle.getInstance()!!.disconnect()
+BaseBle.getInstance()!!.disconnect()
 ```
 
 
@@ -234,7 +234,7 @@ FcBoxBle.getInstance()!!.disconnect()
 退出应用时，清除资源。
 
 ```kotlin
-FcBoxBle.getInstance()!!.clear()
+BaseBle.getInstance()!!.clear()
 ```
 
 #### 3.7.参考资料
