@@ -1,10 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" addBOMForNewFiles="with NO BOM">
-    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/fcbox/ble/baseble" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/blelibrary/src/main/res/layout/activity_main.xml" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/blelibrary/src/main/res/layout/gatt_services_characteristics.xml" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/blelibrary/src/main/res/layout/gatt_services_characteristics2.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/fcbox/ble/baseble" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/BaseBle.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/callback/IBleCallback.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/callback/IConnectCallback.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/callback/IRssiCallback.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/callback/scan/IScanCallback.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/callback/scan/IScanFilter.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/callback/scan/ListFilterScanCallback.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/callback/scan/RegularFilterScanCallback.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/callback/scan/ScanCallback.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/callback/scan/SingleFilterScanCallback.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/callback/scan/UuidFilterScanCallback.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/common/BleConfig.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/common/BleConstant.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/common/BleExceptionCode.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/common/BluetoothServiceType.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/common/ConnectState.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/common/PropertyType.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/core/BluetoothGattChannel.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/core/DeviceMirror.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/core/DeviceMirrorPool.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/core/LruHashMap.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/exception/BleException.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/exception/ConnectException.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/exception/GattException.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/exception/InitiatedException.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/exception/OtherException.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/exception/TimeoutException.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/exception/handler/BleExceptionHandler.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/exception/handler/DefaultBleExceptionHandler.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/model/BluetoothLeDevice.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/model/BluetoothLeDeviceStore.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/model/adrecord/AdRecord.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/model/adrecord/AdRecordStore.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/model/resolver/BluetoothClassResolver.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/model/resolver/CompanyIdentifierResolver.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/model/resolver/GattAttributeResolver.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/utils/AdRecordUtil.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/utils/BleUtil.kt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/utils/HexUtil.kt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/sample-ble/src/main/res/layout/activity_main.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/sample-ble/src/main/res/layout/gatt_services_characteristics.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/sample-ble/src/main/res/layout/gatt_services_characteristics2.xml" charset="GBK" />
