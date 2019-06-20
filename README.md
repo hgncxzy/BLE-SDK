@@ -10,7 +10,7 @@
 
 #### 2.1. 引入 aar
 
-将 baseble-release.aar 导入项目的 libs 文件夹下。
+将 [baseble-release.aar](https://github.com/hgncxzy/BLE-SDK/blob/master/aar/baseble-release.aar) 导入项目的 libs 文件夹下。
 
 #### 2.2. 修改 build.gradle 配置文件
 
