@@ -14,7 +14,7 @@ import com.xzy.ble.baseble.model.BluetoothLeDeviceStore
  * 扫描设备回调
  */
 @Suppress("unused", "DEPRECATION")
-open class ScanCallback internal constructor(internal var scanCallback: IScanCallback?//扫描结果回调
+open class ScanCallback(internal var scanCallback: IScanCallback?//扫描结果回调
 ) : BluetoothAdapter.LeScanCallback, IScanFilter {
     private val handler = Handler(Looper.myLooper())
     private var isScan = true//是否开始扫描

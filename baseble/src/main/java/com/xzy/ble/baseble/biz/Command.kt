@@ -22,52 +22,11 @@ import com.xzy.ble.baseble.model.BluetoothLeDevice
  */
 @Suppress("unused")
 object Command {
-
-    /**
-     * 打开某一个格口.
-     *
-     */
-    fun openCell(cmd:ByteArray){
-        send(cmd)
-    }
-
-    /**
-     * 查询锁的状态.
-     *
-     */
-    fun queryLockerStatus(cmd:ByteArray){
-        send(cmd)
-    }
-
-    /**
-     * 查询电池数据.
-     *
-     */
-    fun queryBatteryData(cmd:ByteArray){
-        send(cmd)
-    }
-
-    /**
-     * 查询温度数据.
-     *
-     */
-    fun queryTemperatureData(cmd:ByteArray){
-        send(cmd)
-    }
-
-    /**
-     * 查询湿度数据.
-     *
-     */
-    fun queryHumidityData(cmd:ByteArray){
-        send(cmd)
-    }
-
     /**
      * 发送数据.
      *
      */
-    private fun send(cmd:ByteArray) {
+     fun write(cmd:ByteArray) {
         val bluetoothGattChannel = BluetoothGattChannel.Builder()
                 .setBluetoothGatt(BleConfig.getInstance()!!.deviceMirror?.bluetoothGatt!!)
                 .setPropertyType(PropertyType.PROPERTY_WRITE)
@@ -95,7 +54,7 @@ object Command {
     /**
      * 接收数据.
      */
-     private fun read() {
+      private fun read() {
         val bluetoothGattChannel = BluetoothGattChannel.Builder()
                 .setBluetoothGatt(BleConfig.getInstance()!!.deviceMirror?.bluetoothGatt!!)
                 .setPropertyType(PropertyType.PROPERTY_INDICATE)

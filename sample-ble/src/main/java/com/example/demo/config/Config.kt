@@ -9,7 +9,8 @@ import com.xzy.ble.baseble.utils.HexUtil
  */
 @Suppress("unused")
 object Config {
-    var deviceMac = "00:15:80:90:76:20"
+    var targetDeviceMac = "00:15:80:90:76:20"
+    var targetDeviceName = "FicBox"
     const val TAG = "[FcBox-ble-demo-log]"
 
     // 发送 byte 数组

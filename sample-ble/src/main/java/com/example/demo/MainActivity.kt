@@ -9,16 +9,17 @@ import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.os.Build
 import com.example.demo.config.Config.byte2
-import com.example.demo.config.Config.deviceMac
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
 import com.example.demo.config.Config.TAG
+import com.example.demo.config.Config.targetDeviceMac
 import com.xzy.ble.baseble.BaseBle
 import com.xzy.ble.baseble.biz.Command
 import com.xzy.ble.baseble.callback.IConnectCallback
+import com.xzy.ble.baseble.callback.scan.ScanCallback
 import com.xzy.ble.baseble.common.BleConfig
 import com.xzy.ble.baseble.common.BleConstant.MY_PERMISSION_REQUEST_CONSTANT
 import com.xzy.ble.baseble.common.BleConstant.RECEIVE_DATA_FAILED
@@ -28,6 +29,8 @@ import com.xzy.ble.baseble.common.BleConstant.SEND_CMD_FAILED
 import com.xzy.ble.baseble.common.BleConstant.SEND_CMD_SUCCESS
 import com.xzy.ble.baseble.core.DeviceMirror
 import com.xzy.ble.baseble.exception.BleException
+import com.xzy.ble.baseble.model.BluetoothLeDevice
+import com.xzy.ble.baseble.model.BluetoothLeDeviceStore
 import com.xzy.ble.baseble.utils.BleUtil
 import com.xzy.ble.baseble.utils.HexUtil
 import com.xzy.ble.baseble.utils.PermissionUtil
@@ -35,6 +38,8 @@ import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_main.*
+import com.xzy.ble.baseble.callback.scan.IScanCallback
+import com.xzy.ble.baseble.callback.scan.SingleFilterScanCallback
 
 
 /**
@@ -91,7 +96,7 @@ class MainActivity : AppCompatActivity() {
     private fun initBleConfig(){
         //蓝牙相关配置修改
         BaseBle.config()!!
-                .setscanBleTimeout(-1)//扫描超时时间，这里设置为永久扫描
+                .setscanBleTimeout(10*1000)//扫描超时时间，设置 -1 为永久扫描 ,这里设置 10秒后停止扫描
                 .setconnectBleTimeout(10 * 1000)//连接超时时间
                 .setoperateBleTimeout(5 * 1000)//设置数据操作超时时间
                 .setconnectBleRetryCount(3)//设置连接失败重试次数
@@ -161,7 +166,8 @@ class MainActivity : AppCompatActivity() {
      * 连接
      */
     private fun connDevice() {
-        BaseBle.getInstance()!!.connectByMac(deviceMac, object : IConnectCallback {
+        // 通过 mac 地址连接设备
+        BaseBle.getInstance()!!.connectByMac(targetDeviceMac, object : IConnectCallback {
             override fun onConnectSuccess(deviceMirror: DeviceMirror) {
                 val disposable = Flowable.just(1)
                         .doOnNext {
@@ -200,6 +206,39 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+        // 扫描所有的设备
+        BaseBle.getInstance()?.startScan(ScanCallback(object : IScanCallback {
+            override fun onscanBleTimeout() {
+            }
+
+            override fun onDeviceFound(bluetoothLeDevice: BluetoothLeDevice) {
+                    if(targetDeviceMac == bluetoothLeDevice.address){
+                        Log.d(TAG,"找到目标设备1")
+                    }
+            }
+
+            override fun onScanFinish(bluetoothLeDeviceStore: BluetoothLeDeviceStore) {
+                Log.d(TAG,"扫描结束1")
+            }
+
+        }))
+
+        // 通过 MAC 地址扫描指定的设备
+        BaseBle.getInstance()?.startScan(SingleFilterScanCallback(object:IScanCallback{
+            override fun onDeviceFound(bluetoothLeDevice: BluetoothLeDevice) {
+                Log.d(TAG,"找到目标设备2")
+            }
+
+            override fun onScanFinish(bluetoothLeDeviceStore: BluetoothLeDeviceStore) {
+                Log.d(TAG,"扫描结束2")
+            }
+
+            override fun onscanBleTimeout() {
+
+            }
+
+        }).setDeviceMac(targetDeviceMac))
+
     }
 
     /**
@@ -207,7 +246,7 @@ class MainActivity : AppCompatActivity() {
      */
     private fun sendData() {
         if (!mConnStatusTv!!.text.toString().contains("已连接")) return
-        Command.openCell(byte2)
+        Command.write(byte2)
     }
 
 

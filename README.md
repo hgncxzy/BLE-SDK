@@ -164,9 +164,7 @@ private fun registerMyReceiver(){
 
 
 
-#### 3.4. 通过 MAC 地址连接设备
-
-通过已知的 MAC 地址连接蓝牙设备。
+#### 3.4. 通过 MAC 地址直连
 
 ```kotlin
      BaseBle.getInstance()!!.connectByMac(deviceMac, object : IConnectCallback {
@@ -217,7 +215,17 @@ private fun registerMyReceiver(){
 BleConfig.getInstance()?.deviceMirror = deviceMirror
 ```
 
+#### 3.5. 发送数据
 
+将发送数据封装成 byte[],调用以下方法即可发送：
+
+```kotlin
+Command.write(cmd: ByteArray)
+```
+
+#### 3.6.接收数据
+
+通过广播接收器接收数据，见 3.3.1.
 
 #### 3.5. 断开设备
 
@@ -238,4 +246,5 @@ BaseBle.getInstance()!!.clear()
 ```
 
 #### 3.7.参考资料
-http://www.jcodecraeer.com/a/opensource/2017/1106/8705.html (项目地址：https://github.com/xiaoyaoyou1212/BLE)
+1. http://www.jcodecraeer.com/a/opensource/2017/1106/8705.html 
+2. [git 项目地址](https://github.com/xiaoyaoyou1212/BLE)
