@@ -245,6 +245,11 @@ BaseBle.getInstance()!!.disconnect()
 BaseBle.getInstance()!!.clear()
 ```
 
-#### 3.7.参考资料
+#### 3.7. 参考资料
 1. http://www.jcodecraeer.com/a/opensource/2017/1106/8705.html 
 2. [git 项目地址](https://github.com/xiaoyaoyou1212/BLE)
+
+#### 3.8. 作者
+ID : hgncxzy
+邮箱：hgncxzy@qq.com
+项目地址：https://github.com/hgncxzy/ViewModelAndLiveDataSample
