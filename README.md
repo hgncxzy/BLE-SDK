@@ -250,6 +250,7 @@ BaseBle.getInstance()!!.clear()
 2. [git 项目地址](https://github.com/xiaoyaoyou1212/BLE)
 
 #### 3.8. 作者
-ID : hgncxzy
-邮箱：hgncxzy@qq.com
-项目地址：https://github.com/hgncxzy/ViewModelAndLiveDataSample
+1. ID : hgncxzy
+
+2. 邮箱：hgncxzy@qq.com
+3. 项目地址：https://github.com/hgncxzy/ViewModelAndLiveDataSample
