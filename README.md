@@ -253,4 +253,4 @@ BaseBle.getInstance()!!.clear()
 1. ID : hgncxzy
 
 2. 邮箱：hgncxzy@qq.com
-3. 项目地址：https://github.com/hgncxzy/ViewModelAndLiveDataSample
+3. 项目地址：https://github.com/hgncxzy/BLE-SDK
