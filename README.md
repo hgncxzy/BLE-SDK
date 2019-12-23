@@ -246,8 +246,10 @@ BaseBle.getInstance()!!.clear()
 ```
 
 #### 3.7. 参考资料
-1. http://www.jcodecraeer.com/a/opensource/2017/1106/8705.html 
-2. [git 项目地址](https://github.com/xiaoyaoyou1212/BLE)
+2. [参考了这个 git 项目](https://github.com/xiaoyaoyou1212/BLE)
+2. [Android 蓝牙权限](https://www.jianshu.com/p/449242010612)
+3. [关于经典蓝牙和低功耗蓝牙的区别](https://blog.csdn.net/lyl953147712/article/details/77025294)
+4. [BLE、BR、EDR 等特定术语解读](http://www.sohu.com/a/235874099_404276)
 
 #### 3.8. 作者
 1. ID : hgncxzy
