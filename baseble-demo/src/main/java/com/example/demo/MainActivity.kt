@@ -72,22 +72,21 @@ class MainActivity : AppCompatActivity() {
    inner class MyReceiver : BroadcastReceiver(){
         @SuppressLint("SetTextI18n")
         override fun onReceive(context: Context?, intent: Intent?) {
-            val action = intent?.action
-            when {
-                SEND_CMD_SUCCESS == action -> {
+            when (intent?.action) {
+                SEND_CMD_SUCCESS -> {
                     val bundle = intent.getBundleExtra("bundle_data")
-                    val data = bundle.getByteArray("byte_array_data")!!
+                    val data = bundle?.getByteArray("byte_array_data")!!
                     mSendDataTv?.text = "发送数据："+HexUtil.parseBytesToHexString(data)
                     Log.d(TAG,"发送数据成功"+ HexUtil.parseBytesToHexString(data))
                 }
-                SEND_CMD_FAILED == action -> Log.d(TAG,"发送数据失败")
-                RECEIVE_DATA_SUCCESS == action -> {
+                SEND_CMD_FAILED -> Log.d(TAG,"发送数据失败")
+                RECEIVE_DATA_SUCCESS -> {
                     val bundle = intent.getBundleExtra("bundle_data")
-                    val data = bundle.getByteArray("byte_array_data")!!
+                    val data = bundle?.getByteArray("byte_array_data")!!
                     mReceiveDataTv?.text ="接收数据："+ HexUtil.parseBytesToHexString(data)
                     Log.d(BleConfig.TAG, "正常--收到数据：" + HexUtil.parseBytesToHexString(data))
                 }
-                RECEIVE_DATA_FAILED == action -> Log.d(TAG,"")
+                RECEIVE_DATA_FAILED -> Log.d(TAG,"")
             }
         }
     }
@@ -145,6 +144,7 @@ class MainActivity : AppCompatActivity() {
                 BleUtil.enableBluetooth(this, REQUEST_ENABLE_BT)
             } else {
                // todo(逻辑代码)
+                Log.d("xzy","这里添加逻辑代码")
             }
         } else {
             Toast.makeText(this, "该设备不支持 ble", Toast.LENGTH_SHORT).show()
@@ -156,6 +156,7 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == REQUEST_ENABLE_BT) {
             if (resultCode == Activity.RESULT_OK) {
               // todo(逻辑代码)
+                Log.d("xzy","这里添加逻辑代码")
             } else {
                 Toast.makeText(this, "未开启 ble", Toast.LENGTH_SHORT).show()
             }
