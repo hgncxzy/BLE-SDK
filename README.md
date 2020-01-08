@@ -1,6 +1,6 @@
 # BLE-SDK
 
-*注意：如果该 SDK 出现无法接收蓝牙从设备返回的数据，请使用我的这个项目：[RxAndroidBluetooth](https://github.com/hgncxzy/RxAndroidBluetooth)*
+*注意：如果该 SDK 出现无法接收蓝牙从设备返回的数据，请使用我的这个项目：[RxAndroidBluetooth](https://github.com/hgncxzy/RxAndroidBluetooth)* *或者我的这个项目：[AndroidBleTools](https://github.com/hgncxzy/AndroidBleTools)*
 
 ## BLE 蓝牙 SDK 接入教程
 
