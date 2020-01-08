@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ble_set_item_titles">
+        <item>设备名称</item>
+        <item>版本号</item>
+        <item>电量</item>
+        <item>广播间隔</item>
+        <item>连接间隔</item>
+    </string-array>
+    <string-array name="fragment_titles">
+        <item>扫描LE</item>
+        <item>已连接</item>
+        <item>MTU</item>
+    </string-array>
+    <string-array name="load_file_menus">
+        <item>测试文件A</item>
+        <item>测试文件B</item>
+        <item>本地文件</item>
+    </string-array>
+    <string-array name="oad_send_interval_values">
+        <item>15ms</item>
+        <item>20ms</item>
+        <item>24ms</item>
+        <item>30ms</item>
+        <item>40ms</item>
+        <item>48ms</item>
+        <item>60ms</item>
+        <item>96ms</item>
+    </string-array>
+    <string name="app_name">BLE Demo</string>
+    <string name="ble_not_supported">BLE is not supported</string>
+    <string name="ble_read">读取</string>
+    <string name="ble_set">设置</string>
+    <string name="ble_set_adv_interval_hint">32~24000（单位 625μs）</string>
+    <string name="ble_set_conn_interval_hint">16~3200（单位1.25ms）</string>
+    <string name="ble_title">模组设置</string>
+    <string name="connected">Connected</string>
+    <string name="connected_send">发送</string>
+    <string formatted="false" name="connected_send_ascii_hint">请输入ascii字符，最多%d字节</string>
+    <string formatted="false" name="connected_send_hex_hint">请输入16进制字符，最多%d字节</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="encrypt">数据加密</string>
+    <string name="error_bluetooth_not_supported">Bluetooth not supported.</string>
+    <string formatted="false" name="input_bytes">已输入%d字节</string>
+    <string name="label_data">Data:</string>
+    <string name="label_device_address">Device address:</string>
+    <string name="label_state">State:</string>
+    <string formatted="false" name="max_bytes">最多%d字节</string>
+    <string name="menu_connect">连接</string>
+    <string name="menu_disconnect">断开</string>
+    <string name="menu_scan">扫描</string>
+    <string name="menu_stop">停止</string>
+    <string name="mtu_no_device_connected">未连接设备</string>
+    <string name="mtu_update">更新MTU</string>
+    <string name="no_data">No data</string>
+    <string name="oad_cancel">取消</string>
+    <string name="oad_load_file">加载文件</string>
+    <string name="oad_please_select_a_device">请选择需要升级的设备</string>
+    <string name="oad_please_select_a_image">未加载升级文件</string>
+    <string name="oad_programming">正在升级！</string>
+    <string name="oad_send_interval">发送间隔</string>
+    <string name="oad_start">开始</string>
+    <string name="scan_bt_disabled">蓝牙未打开</string>
+    <string name="scan_connect_timeout">连接超时</string>
+    <string name="scan_connected">已连接</string>
+    <string name="scan_connection_error">连接异常</string>
+    <string name="scan_disconnected">已断开</string>
+    <string name="title_devices">BLE Device Scan</string>
+    <string name="unknown_characteristic">Unknown characteristic</string>
+    <string name="unknown_device">Unknown device</string>
+    <string name="unknown_service">Unknown service</string>
+</resources>

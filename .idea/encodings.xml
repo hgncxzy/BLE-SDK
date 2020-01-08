@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" addBOMForNewFiles="with NO BOM">
-    <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/fcbox/ble/baseble" charset="UTF-8" />
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/baseble-demo/src/main/res/layout/activity_main.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble-demo/src/main/res/layout/gatt_services_characteristics.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble-demo/src/main/res/layout/gatt_services_characteristics2.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble-demo/src/main/res/menu" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble-demo/src/main/res/values/dimens.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble-demo/src/main/res/values/strings.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baseble-demo/src/main/res/values/styles.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/BaseBle.kt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/callback/IBleCallback.kt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/callback/IConnectCallback.kt" charset="GBK" />
@@ -41,13 +47,6 @@
     <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/utils/AdRecordUtil.kt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/utils/BleUtil.kt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/baseble/src/main/java/com/xzy/ble/baseble/utils/HexUtil.kt" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/sample-ble/src/main/res/layout/activity_main.xml" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/sample-ble/src/main/res/layout/gatt_services_characteristics.xml" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/sample-ble/src/main/res/layout/gatt_services_characteristics2.xml" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/sample-ble/src/main/res/menu" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/sample-ble/src/main/res/values/dimens.xml" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/sample-ble/src/main/res/values/strings.xml" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/sample-ble/src/main/res/values/styles.xml" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
